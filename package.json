@@ -1,0 +1,38 @@
+{
+  "name": "another-xml-parser",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "keywords": [
+    "another-xml-parser"
+  ],
+  "scripts": {
+    "start": "tsc && node dist/index.js",
+    "build": "tsc -b",
+    "lint": "eslint src/**"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.7.0",
+    "@types/node": "^14.0.20",
+    "babel-eslint": "^10.1.0",
+    "core-js": "^3.6.5",
+    "eslint": "^7.8.1",
+    "typescript": "^3.9.6",
+    "xml-formatter": "^2.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stonychen/another-xml-parser.git"
+  },
+  "author": "Stony Chen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stonychen/another-xml-parser/issues"
+  },
+  "homepage": "https://github.com/stonychen/another-xml-parser#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
+}
