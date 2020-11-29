@@ -17,8 +17,6 @@ class ElementNode {
   public selfCloseNode: boolean = false
   public startNode: boolean = true
   public text: string = ""
-  public $tmpCurr: XmlNode | undefined = undefined
-  public $tmpChildren: Array<XmlNode> = []
 }
 
 function getFirstMatch(str: string, reg: RegExp) {

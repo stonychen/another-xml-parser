@@ -24,8 +24,6 @@ var ElementNode = /** @class */ (function () {
         this.selfCloseNode = false;
         this.startNode = true;
         this.text = "";
-        this.$tmpCurr = undefined;
-        this.$tmpChildren = [];
     }
     return ElementNode;
 }());
