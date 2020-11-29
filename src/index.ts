@@ -24,7 +24,7 @@ function getFirstMatch(str: string, reg: RegExp) {
   return matches && matches.length > 0 ? matches[0] : ""
 }
 
-function parseXml(xml: string, options: any): XmlNode | undefined {
+function parseXml(xml: string, options: any = {}): XmlNode | undefined {
   return parseToXmlNode(parseToElements(xml, options))
 }
 
