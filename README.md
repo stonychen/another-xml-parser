@@ -7,7 +7,7 @@ another-xml-parser is a very convenient Javascript package to parse xml.
 ## Installation
 
 ``` CMD
-npm install another-xml-parser --save-dev
+npm install another-xml-parser --save
 ```
 
 ## Usage
