@@ -5,6 +5,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "keywords": [
+    "xml parser",
     "xml-parser",
     "another-xml-parser"
   ],
