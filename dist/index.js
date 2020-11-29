@@ -4,13 +4,13 @@ exports.parseXml = exports.XmlNode = void 0;
 var XmlNode = /** @class */ (function () {
     function XmlNode() {
         this.tag = "";
-        this.namespace = "";
         this.name = "";
+        this.namespace = "";
         this.attrs = {};
         this.selfCloseNode = false;
         this.text = "";
+        this.path = "";
         this.children = [];
-        this.parent = undefined;
     }
     return XmlNode;
 }());
@@ -32,6 +32,7 @@ function getFirstMatch(str, reg) {
     return matches && matches.length > 0 ? matches[0] : "";
 }
 function parseXml(xml, options) {
+    if (options === void 0) { options = {}; }
     return parseToXmlNode(parseToElements(xml, options));
 }
 exports.parseXml = parseXml;
@@ -52,7 +53,9 @@ function parseToXmlNode(allNodes) {
             if (last) {
                 last.children.push(xmlNode);
             }
-            root = xmlNode;
+            stack.push(xmlNode);
+            xmlNode.path = stack.map(function (m) { return m.name; }).join(".");
+            root = stack.pop();
         }
         else if (curr.startNode) {
             xmlNode.name = curr.name;
@@ -63,6 +66,7 @@ function parseToXmlNode(allNodes) {
                 last.children.push(xmlNode);
             }
             stack.push(xmlNode);
+            xmlNode.path = stack.map(function (m) { return m.name; }).join(".");
         }
         else {
             if (last) {

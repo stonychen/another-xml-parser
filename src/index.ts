@@ -1,12 +1,12 @@
 class XmlNode {
   public tag: string = ""
-  public namespace: string = ""
   public name: string = ""
+  public namespace: string = ""
   public attrs: any = {}
   public selfCloseNode: boolean = false
   public text: string = ""
+  public path: string = ""
   public children: Array<XmlNode> = []
-  public parent: XmlNode | undefined = undefined
 }
 
 class ElementNode {
@@ -49,7 +49,10 @@ function parseToXmlNode(allNodes: Array<ElementNode>): XmlNode | undefined {
         last.children.push(xmlNode)
       }
 
-      root = xmlNode
+      stack.push(xmlNode)
+      xmlNode.path = stack.map(m => m.name).join(".")
+      root = stack.pop()
+
     } else if (curr.startNode) {
       xmlNode.name = curr.name
       xmlNode.attrs = curr.attrs
@@ -60,6 +63,7 @@ function parseToXmlNode(allNodes: Array<ElementNode>): XmlNode | undefined {
       }
 
       stack.push(xmlNode)
+      xmlNode.path = stack.map(m => m.name).join(".")
     } else {
       if (last) {
         last.text = curr.text
