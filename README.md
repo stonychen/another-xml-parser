@@ -2,7 +2,7 @@
 
 ## What is another-xml-parser
 
-another-xml-parser is a very convenient Javascript package to parse xml.
+another-xml-parser is another very convenient Javascript package for parsing xml.
 
 ## Installation
 
